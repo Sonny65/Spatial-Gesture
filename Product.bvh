@@ -6,19 +6,19 @@ ROOT Root
 	JOINT L_Femur
 	{
 		OFFSET 3.93700 0.00000 0.00000
-		CHANNELS 3 Xrotation Yrotation Zrotation
+		CHANNELS 3 Xrotation Zrotation Yrotation
 		JOINT L_Tibia
 		{
 			OFFSET 0.00000 -19.24635 0.00000
-			CHANNELS 3 Xrotation Yrotation Zrotation
+			CHANNELS 1 Xrotation
 			JOINT L_Foot
 			{
 				OFFSET 0.00000 -17.00218 -0.00000
-				CHANNELS 3 Xrotation Yrotation Zrotation
+				CHANNELS 2 Xrotation Zrotation
 				JOINT L_Toe
 				{
 					OFFSET 0.00000 -1.78320 6.65499
-					CHANNELS 3 Xrotation Yrotation Zrotation
+					CHANNELS 1 Xrotation
 					End Site
 					{
 						OFFSET 0.00000 0.00000 2.95275
@@ -30,19 +30,19 @@ ROOT Root
 	JOINT R_Femur
 	{
 		OFFSET -3.93700 0.00000 0.00000
-		CHANNELS 3 Xrotation Yrotation Zrotation
+		CHANNELS 3 Xrotation Zrotation Yrotation
 		JOINT R_Tibia
 		{
 			OFFSET 0.00000 -19.24635 0.00000
-			CHANNELS 3 Xrotation Yrotation Zrotation
+			CHANNELS 1 Xrotation
 			JOINT R_Foot
 			{
 				OFFSET 0.00000 -17.00218 0.00000
-				CHANNELS 3 Xrotation Yrotation Zrotation
+				CHANNELS 2 Xrotation Zrotation
 				JOINT R_Toe
 				{
 					OFFSET 0.00000 -1.78320 6.65499
-					CHANNELS 3 Xrotation Yrotation Zrotation
+					CHANNELS 1 Xrotation
 					End Site
 					{
 						OFFSET 0.00000 0.00000 2.95275
@@ -54,15 +54,15 @@ ROOT Root
 	JOINT LowerBack
 	{
 		OFFSET 0.00000 0.03937 0.00000
-		CHANNELS 3 Xrotation Yrotation Zrotation
+		CHANNELS 3 Xrotation Zrotation Yrotation
 		JOINT Thorax
 		{
 			OFFSET 0.00000 8.42896 0.00000
-			CHANNELS 3 Xrotation Yrotation Zrotation
+			CHANNELS 3 Xrotation Zrotation Yrotation
 			JOINT Neck
 			{
 				OFFSET 0.00000 7.29157 0.00000
-				CHANNELS 3 Xrotation Yrotation Zrotation
+				CHANNELS 3 Xrotation Zrotation Yrotation
 				JOINT Head
 				{
 					OFFSET 0.00000 4.22110 0.00000
@@ -76,7 +76,7 @@ ROOT Root
 			JOINT L_Collar
 			{
 				OFFSET 0.00000 7.29157 0.00000
-				CHANNELS 3 Xrotation Yrotation Zrotation
+				CHANNELS 2 Yrotation Zrotation
 				JOINT L_Humerus
 				{
 					OFFSET 5.90550 0.00000 0.00000
@@ -84,11 +84,11 @@ ROOT Root
 					JOINT L_Elbow
 					{
 						OFFSET 11.59585 0.00000 0.00000
-						CHANNELS 3 Xrotation Yrotation Zrotation
+						CHANNELS 2 Yrotation Xrotation
 						JOINT L_Wrist
 						{
 							OFFSET 8.38509 0.00000 0.00000
-							CHANNELS 3 Xrotation Yrotation Zrotation
+							CHANNELS 2 Zrotation Yrotation
 							JOINT leHand
 							{
 								OFFSET 0.11942 0.36471 -0.08791
@@ -196,7 +196,7 @@ ROOT Root
 			JOINT R_Collar
 			{
 				OFFSET 0.00000 7.29157 0.00000
-				CHANNELS 3 Xrotation Yrotation Zrotation
+				CHANNELS 2 Yrotation Zrotation
 				JOINT R_Humerus
 				{
 					OFFSET -5.90550 0.00000 0.00000
@@ -204,11 +204,11 @@ ROOT Root
 					JOINT R_Elbow
 					{
 						OFFSET -11.59585 -0.00000 0.00000
-						CHANNELS 3 Xrotation Yrotation Zrotation
+						CHANNELS 2 Yrotation Xrotation
 						JOINT R_Wrist
 						{
 							OFFSET -8.38509 -0.00000 0.00000
-							CHANNELS 3 Xrotation Yrotation Zrotation
+							CHANNELS 2 Zrotation Yrotation
 							JOINT riHand
 							{
 								OFFSET -0.04598 0.37556 -0.10882
@@ -316,3 +316,7 @@ ROOT Root
 		}
 	}
 }
+MOTION
+Frames 3131
+Frame Time 0.008333
+ 
