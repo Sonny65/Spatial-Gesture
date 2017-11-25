@@ -265,7 +265,7 @@ def organize_frames(bvh,bvh_l,bvh_r):
 
 	return body_frames, right_frames, left_frames
 
-def wrist_rotation(bvh, body_frames, right_frames, left_frames):
+def parent_rotation(bvh, body_frames, right_frames, left_frames):
 
 	# copy frames
 
@@ -287,22 +287,287 @@ def wrist_rotation(bvh, body_frames, right_frames, left_frames):
 	# tokens to keep track of parsing flow
 	
 	current_token = 0
+	joint = []
 
 	# create parent
+
+	# single frame
 
 	body = []
 	parent_left = []
 	parent_right = []
 
+	# all the frames
+
+	body_all = []
+	parent_left_all = []
+	parent_right_all = []
+
 	# creating parent from body file
+
+	for frame in bf:
+
+		current_token = 0
+
+		body = []
+		parent_left = []
+		parent_right = []
+
+		# root is a special case
+
+		while (bvh[current_token] != ("IDENT", "L_Femur")):
+			if "rotation" in bvh[current_token][1]:
+				joint = joint + [bvh[current_token][1]]
+				joint = joint + [frame.pop(0)]
+			current_token = current_token + 1
+
+		body = body + [joint]
+
+		# skip legs
+
+		while (bvh[current_token] != ("IDENT", "LowerBack")):
+			if "rotation" in bvh[current_token][1]:
+				frame.pop(0)
+			current_token = current_token + 1
+
+		current_token = current_token - 2
+
+		# rest of the body
+
+		while (bvh[current_token] != ("IDENT", "Neck")):
+			if ("JOINT" in bvh[current_token][1] and "Neck" not in bvh[current_token+2][1]):
+				joint = []
+				current_token = current_token + 1
+				while ("JOINT" not in bvh[current_token][1] and "Neck" not in bvh[current_token][1]):
+					if "rotation" in bvh[current_token][1]:
+						joint = joint + [bvh[current_token][1]]
+						joint = joint + [frame.pop(0)]
+					current_token = current_token + 1
+				body = body + [joint]
+
+			else:
+				current_token = current_token + 1
+
+		# skip head
+
+		while (bvh[current_token] != ("IDENT", "End")):
+			if "rotation" in bvh[current_token][1]:
+				frame.pop(0)
+			current_token = current_token + 1
+
+		# Skip the "End"
+
+		current_token = current_token + 1
+
+		# left hand
+
+		parent_left = parent_left + body
+
+		while (bvh[current_token] != ("IDENT", "End")):
+			if "JOINT" in bvh[current_token][1]:
+				joint = []
+				current_token = current_token + 1
+				while ("JOINT" not in bvh[current_token][1] and "End" not in bvh[current_token][1]):
+					if "rotation" in bvh[current_token][1]:
+						joint = joint + [bvh[current_token][1]]
+						joint = joint + [frame.pop(0)]
+					current_token = current_token + 1
+				parent_left = parent_left + [joint]
+
+			else:
+				current_token = current_token + 1
+
+		# Skip the "End"
+
+		current_token = current_token + 1
+
+		# right hand
+
+		parent_right = parent_right + body
+
+		while (bvh[current_token] != ("IDENT", "End")):
+			if "JOINT" in bvh[current_token][1]:
+				joint = []
+				current_token = current_token + 1
+				while ("JOINT" not in bvh[current_token][1] and "End" not in bvh[current_token][1]):
+					if "rotation" in bvh[current_token][1]:
+						joint = joint + [bvh[current_token][1]]
+						joint = joint + [frame.pop(0)]
+					current_token = current_token + 1
+				parent_right = parent_right + [joint]
+
+			else:
+				current_token = current_token + 1
+
+		# Skip the "End"
+
+		current_token = current_token + 1
+
+		# put into all
+
+		body_all = body_all + [body]
+
+		parent_left_all = parent_left_all + [parent_left]
+
+		parent_right_all = parent_right_all + [parent_right]
+
+		return parent_left_all, parent_right_all
+
+def transpose(bvh, body_frames):
+
+	transpose_root = []
+
+	body_transpose = []
+
+	left_transpose = []
+
+	right_transpose = []
+
+	current_token = 0
+
+	joint = []
 
 	# root is a special case
 
-	while (bvh[current_token] != ("IDENT", "L_Femur")):
-		if "rotation" in bvh[current_token][1]:
-			body = body + [bvh[current_token][1]]
+	for x in body_frames:
+		transpose_root = transpose_root + [x[:3]]
+
+	# skip the legs
+
+	while (bvh[current_token] != ("IDENT", "LowerBack")):
 		current_token = current_token + 1
 
+	# get body transpose
+
+	while (bvh[current_token] != ("IDENT", "Neck")):
+		joint = []
+		if "OFFSET" in bvh[current_token][1]:
+			while ("\n" not in bvh[current_token][1]):
+				if (bvh[current_token][0] == "DIGIT"):
+					joint = joint + [bvh[current_token][1]]
+				current_token = current_token + 1
+			body_transpose = body_transpose + [joint]
+		else:
+			current_token = current_token + 1
+
+	# skip the head
+
+	while (bvh[current_token] != ("IDENT", "L_Collar")):
+		current_token = current_token + 1
+
+	# left hand
+
+	left_transpose = left_transpose + body_transpose
+
+	while (bvh[current_token] != ("IDENT", "R_Collar")):
+		joint = []
+		if "OFFSET" in bvh[current_token][1]:
+			while ("\n" not in bvh[current_token][1]):
+				if (bvh[current_token][0] == "DIGIT"):
+					joint = joint + [bvh[current_token][1]]
+				current_token = current_token + 1
+			left_transpose = left_transpose + [joint]
+		else:
+			current_token = current_token + 1
+
+	# right hand
+
+	right_transpose = right_transpose + body_transpose
+
+	while (bvh[current_token] != ("IDENT", "MOTION")):
+		joint = []
+		if "OFFSET" in bvh[current_token][1]:
+			while ("\n" not in bvh[current_token][1]):
+				if (bvh[current_token][0] == "DIGIT"):
+					joint = joint + [bvh[current_token][1]]
+				current_token = current_token + 1
+			right_transpose = right_transpose + [joint]
+		else:
+			current_token = current_token + 1
+
+	return transpose_root, left_transpose, right_transpose
+
+def write_data(body_frames, left_frames, right_frames, data_index, data_index_mid, data_index_left, data_index_right, bvh_out):
+	# print len(body_frames)
+	for index in range(0,len(body_frames)):
+
+		i = 0
+		
+		while (i < 3):
+			bvh_out.write(str(body_frames[index].pop(0)))
+			bvh_out.write(" ")
+			i = i + 1
+		
+		bvh_out.write("\n")
+
+
+
+	# for index, frame in enumerate(body_frames):
+		
+	# 	i = 0
+
+ #    	# write down xyz position for root
+
+ #    	while (i < 3):
+ #    		bvh_out.write(str(frame.pop(0)))
+ #    		bvh_out.write(" ")
+ #    		i = i + 1
+
+ #    	# write down body rotation
+
+ #    	i = 0
+
+ #    	while (i < data_index): 
+ #    		bvh_out.write(str(frame.pop(0)))
+ #    		bvh_out.write(" ")
+ #    		i = i + 1
+
+ #    	# write down left hand
+
+ #    	i = 0
+
+ #    	while (i < 6): 
+ #    		# bvh_out.write(str(left_frames[index].pop(0)))
+ #    		# bvh_out.write(" ")
+ #    		left_frames[index].pop(0)
+ #    		i = i + 1
+
+ #    	# i = 0
+
+ #    	while (left_frames[index]): 
+ #    		bvh_out.write(str(left_frames[index].pop(0)))
+ #    		bvh_out.write(" ")
+ #    		# i = i + 1
+
+ #    	# write down mid
+
+ #    	i = 0
+
+ #    	while (i < data_index_mid): 
+ #    		bvh_out.write(str(frame.pop(0)))
+ #    		bvh_out.write(" ")
+ #    		i = i + 1
+
+ #    	# write down right hand
+
+ #    	i = 0
+
+ #    	while (i < 6): 
+ #    		# bvh_out.write(str(right_frames[index].pop(0)))
+ #    		# bvh_out.write(" ")
+ #    		right_frames[index].pop(0)
+ #    		i = i + 1
+
+ #    	i = 0
+
+ #    	while (right_frames[index]): 
+ #    		bvh_out.write(str(right_frames[index].pop(0)))
+ #    		bvh_out.write(" ")
+ #    		i = i + 1
+
+ #    	# go to next line 
+ #    	i = 0
+ #    	bvh_out.write("\n")
 
 if __name__ == "__main__":
 	bvh_file_body = open(bvh_file_body, "r")
@@ -335,12 +600,16 @@ if __name__ == "__main__":
 
 	body_frames, right_frames, left_frames = organize_frames(tokens_body,tokens_left, tokens_right)
 
-	# calculate the wrist rotation
+	# get the wrist rotation
 
-	print len(body_frames[0])
+	parent_left_all, parent_right_all = parent_rotation(tokens_body, body_frames, right_frames, left_frames)
 
-	wrist_rotation(tokens_body, body_frames, right_frames, left_frames)
+	# transpose
 
-	print len(body_frames[0])
+	transpose_root, left_transpose, right_transpose = transpose(tokens_body, body_frames)
+
+	# write down transpose
+
+	write_data(body_frames, left_frames, right_frames, data_index, data_index_mid, data_index_left, data_index_right, bvh_out)
 
 	bvh_out.close()
