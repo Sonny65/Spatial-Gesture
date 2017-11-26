@@ -13,7 +13,7 @@ def operator(scanner, token):    return "OPERATOR", token
 def digit(scanner, token):       return "DIGIT", token
 def open_brace(scanner, token):  return "OPEN_BRACE", token
 def close_brace(scanner, token): return "CLOSE_BRACE", token
-def colon(scanner, token):  return "COLON", token
+def column(scanner, token):  return "COLUMN", token
 def space(scanner, token): return "SPACE", token
 
 reserved      = [ "HIERARCHY", "ROOT", "OFFSET", "CHANNELS", "MOTION" ]
@@ -24,7 +24,7 @@ scanner = re.Scanner([
     (r"-*[0-9]+(\.[0-9]+)?", digit),
 	(r"}", close_brace),
 	(r"{", open_brace),
-	(r":", None),
+	(r":", column),
     (r"\s+", space),
     ])
 
@@ -493,8 +493,54 @@ def write_data(body_frames, left_frames, right_frames, data_index, data_index_mi
 
 		i = 0
 		
+		# write down xyz position of the root
+
 		while (i < 3):
 			bvh_out.write(str(body_frames[index].pop(0)))
+			bvh_out.write(" ")
+			i = i + 1
+
+		# write down body
+
+		i = 0
+
+		while (i<data_index):
+			bvh_out.write(str(body_frames[index].pop(0)))
+			bvh_out.write(" ")
+			i = i + 1
+
+		# write down left hand
+
+		i = 0
+
+		while (i<6):
+			left_frames[index].pop(0)
+			i = i + 1
+
+		while (left_frames[index]):
+			bvh_out.write(str(left_frames[index].pop(0)))
+			bvh_out.write(" ")
+			i = i + 1
+
+		# write down mid
+
+		i = 0
+
+		while (i<data_index_mid):
+			bvh_out.write(str(body_frames[index].pop(0)))
+			bvh_out.write(" ")
+			i = i + 1
+
+		# write down right hand
+
+		i = 0
+
+		while (i<6):
+			right_frames[index].pop(0)
+			i = i + 1
+
+		while (right_frames[index]):
+			bvh_out.write(str(right_frames[index].pop(0)))
 			bvh_out.write(" ")
 			i = i + 1
 		
@@ -502,25 +548,6 @@ def write_data(body_frames, left_frames, right_frames, data_index, data_index_mi
 
 
 
-	# for index, frame in enumerate(body_frames):
-		
-	# 	i = 0
-
- #    	# write down xyz position for root
-
- #    	while (i < 3):
- #    		bvh_out.write(str(frame.pop(0)))
- #    		bvh_out.write(" ")
- #    		i = i + 1
-
- #    	# write down body rotation
-
- #    	i = 0
-
- #    	while (i < data_index): 
- #    		bvh_out.write(str(frame.pop(0)))
- #    		bvh_out.write(" ")
- #    		i = i + 1
 
  #    	# write down left hand
 
