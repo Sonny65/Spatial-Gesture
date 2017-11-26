@@ -504,8 +504,15 @@ def write_data(body_frames, left_frames, right_frames, data_index, data_index_mi
 
 		i = 0
 
-		while (i<data_index):
+		while (i<(data_index-2)):
 			bvh_out.write(str(body_frames[index].pop(0)))
+			bvh_out.write(" ")
+			i = i + 1
+
+		i = 0
+
+		while (i<2):
+			bvh_out.write(str(body_frames[index].pop(0)-90))
 			bvh_out.write(" ")
 			i = i + 1
 
@@ -526,8 +533,15 @@ def write_data(body_frames, left_frames, right_frames, data_index, data_index_mi
 
 		i = 0
 
-		while (i<data_index_mid):
+		while (i<(data_index_mid-2)):
 			bvh_out.write(str(body_frames[index].pop(0)))
+			bvh_out.write(" ")
+			i = i + 1
+
+		i = 0
+
+		while (i<2):
+			bvh_out.write(str(body_frames[index].pop(0)+90))
 			bvh_out.write(" ")
 			i = i + 1
 
