@@ -1,0 +1,256 @@
+material caucasian.mesh_0_male_generic
+{
+    receive_shadows on
+
+    technique
+    {
+        pass
+        {
+            lighting on
+
+            ambient 0.301961 0.278431 0.278431 1
+            diffuse 1.000000 1.000000 1.000000 1.000000
+            specular 0.027451 0.027451 0.027451 64.000000
+            emissive 0.196078 0.101961 0.101961
+
+            depth_write on
+
+            texture_unit diffuseTexture
+            {
+                texture textures/young_lightskinned_male_diffuse.png
+            }
+
+            //texture_unit litsphereTexture
+            //{
+            //    texture textures/lit_standard_skin.png
+            //}
+
+        }
+    }
+}
+
+material caucasian.mesh_1_short04
+{
+    receive_shadows on
+
+    technique
+    {
+        pass
+        {
+            lighting on
+
+            ambient 0.110000 0.110000 0.110000 1
+            diffuse 1.000000 1.000000 1.000000 1.000000
+            specular 0.047059 0.047059 0.047059 122.880000
+            emissive 0.000000 0.000000 0.000000
+
+            depth_write off
+            alpha_rejection greater 128
+
+            texture_unit diffuseTexture
+            {
+                texture textures/short04_diffuse.png
+            }
+
+            //texture_unit litsphereTexture
+            //{
+            //    texture textures/lit_refl_sharp_aniso_hard.png
+            //}
+
+        }
+    }
+}
+
+material caucasian.mesh_2_high_poly
+{
+    receive_shadows on
+
+    technique
+    {
+        pass
+        {
+            lighting on
+
+            ambient 0.110000 0.110000 0.110000 1
+            diffuse 1.000000 1.000000 1.000000 1.000000
+            specular 1.000000 1.000000 1.000000 128.000000
+            emissive 0.000000 0.000000 0.000000
+
+            depth_write off
+            alpha_rejection greater 128
+
+            texture_unit diffuseTexture
+            {
+                texture textures/brown_eye.png
+            }
+
+            //texture_unit litsphereTexture
+            //{
+            //    texture textures/skinmat_eye.png
+            //}
+
+        }
+    }
+}
+
+material caucasian.mesh_3_eyebrow001
+{
+    receive_shadows on
+
+    technique
+    {
+        pass
+        {
+            lighting on
+
+            ambient 1.000000 1.000000 1.000000 1
+            diffuse 1.000000 1.000000 1.000000 1.000000
+            specular 0.000000 0.000000 0.000000 64.000000
+            emissive 0.000000 0.000000 0.000000
+
+            depth_write off
+            alpha_rejection greater 128
+
+            texture_unit diffuseTexture
+            {
+                texture textures/eyebrow001.png
+            }
+
+        }
+    }
+}
+
+material caucasian.mesh_4_eyelashes01
+{
+    receive_shadows on
+
+    technique
+    {
+        pass
+        {
+            lighting on
+
+            ambient 1.000000 1.000000 1.000000 1
+            diffuse 1.000000 1.000000 1.000000 1.000000
+            specular 0.000000 0.000000 0.000000 64.000000
+            emissive 0.000000 0.000000 0.000000
+
+            depth_write off
+            alpha_rejection greater 128
+
+            texture_unit diffuseTexture
+            {
+                texture textures/eyelashes01.png
+            }
+
+        }
+    }
+}
+
+material caucasian.mesh_5_female_casualsuit02
+{
+    receive_shadows on
+
+    technique
+    {
+        pass
+        {
+            lighting on
+
+            ambient 1.000000 1.000000 1.000000 1
+            diffuse 1.000000 1.000000 1.000000 1.000000
+            specular 0.027451 0.027451 0.027451 25.100800
+            emissive 0.000000 0.000000 0.000000
+
+            depth_write on
+
+            texture_unit diffuseTexture
+            {
+                texture textures/female_casualsuit02_diffuse.png
+            }
+
+            //texture_unit normalMapTexture
+            //{
+            //    texture textures/female_casualsuit02_normal.png
+            //}
+
+            //texture_unit aoMapTexture
+            //{
+            //    texture textures/female_casualsuit02_ao.png
+            //}
+
+            //texture_unit litsphereTexture
+            //{
+            //    texture textures/lit_matte.png
+            //}
+
+        }
+    }
+}
+
+material caucasian.mesh_6_male_casualsuit02
+{
+    receive_shadows on
+
+    technique
+    {
+        pass
+        {
+            lighting on
+
+            ambient 1.000000 1.000000 1.000000 1
+            diffuse 1.000000 1.000000 1.000000 1.000000
+            specular 0.027451 0.027451 0.027451 25.100800
+            emissive 0.000000 0.000000 0.000000
+
+            depth_write on
+
+            texture_unit diffuseTexture
+            {
+                texture textures/male_casualsuit02_diffuse.png
+            }
+
+            //texture_unit normalMapTexture
+            //{
+            //    texture textures/male_casualsuit02_normal.png
+            //}
+
+            //texture_unit aoMapTexture
+            //{
+            //    texture textures/male_casualsuit02_ao.png
+            //}
+
+            //texture_unit litsphereTexture
+            //{
+            //    texture textures/lit_matte.png
+            //}
+
+        }
+    }
+}
+
+material caucasian.mesh_7_shoes02
+{
+    receive_shadows on
+
+    technique
+    {
+        pass
+        {
+            lighting on
+
+            ambient 1.000000 1.000000 1.000000 1
+            diffuse 1.000000 1.000000 1.000000 1.000000
+            specular 0.050980 0.047059 0.047059 102.400000
+            emissive 0.000000 0.000000 0.000000
+
+            depth_write on
+
+            texture_unit diffuseTexture
+            {
+                texture textures/shoes02_diffuse.png
+            }
+
+        }
+    }
+}
