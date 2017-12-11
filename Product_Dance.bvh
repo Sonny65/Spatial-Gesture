@@ -89,15 +89,15 @@ ROOT Hip
 						{
 							OFFSET 8.38509 0.00000 0.00000
 							CHANNELS 2 Zrotation Yrotation
-							JOINT L1ProxPhalanx
+							JOINT L2ProxPhalanx
 							{
 								OFFSET 1.09197 2.42158 -0.70498
 								CHANNELS 3 Zrotation Xrotation Yrotation
-								JOINT L1MidPhalanx
+								JOINT L2MidPhalanx
 								{
 									OFFSET 0.54914 1.69807 0.00037
 									CHANNELS 3 Xrotation Yrotation Zrotation
-									JOINT L1DistPhalanx
+									JOINT L2DistPhalanx
 									{
 										OFFSET 0.34223 0.98477 -0.13890
 										CHANNELS 3 Xrotation Yrotation Zrotation
@@ -108,15 +108,15 @@ ROOT Hip
 									}
 								}
 							}
-							JOINT L2ProxPhalanx
+							JOINT L3ProxPhalanx
 							{
 								OFFSET 0.20570 2.50174 -0.52444
 								CHANNELS 3 Zrotation Xrotation Yrotation
-								JOINT L2MidPhalanx
+								JOINT L3MidPhalanx
 								{
 									OFFSET -0.25811 1.79891 -0.09553
 									CHANNELS 3 Xrotation Yrotation Zrotation
-									JOINT L2DistPhalanx
+									JOINT L3DistPhalanx
 									{
 										OFFSET -0.15680 1.09225 -0.05298
 										CHANNELS 3 Xrotation Yrotation Zrotation
@@ -127,15 +127,15 @@ ROOT Hip
 									}
 								}
 							}
-							JOINT L3ProxPhalanx
+							JOINT L4ProxPhalanx
 							{
 								OFFSET -0.68298 2.32110 -0.37433
 								CHANNELS 3 Zrotation Xrotation Yrotation
-								JOINT L3MidPhalanx
+								JOINT L4MidPhalanx
 								{
 									OFFSET -0.56320 1.55045 -0.08792
 									CHANNELS 3 Xrotation Yrotation Zrotation
-									JOINT L3DistPhalanx
+									JOINT L4DistPhalanx
 									{
 										OFFSET -0.34522 0.95085 -0.05080
 										CHANNELS 3 Xrotation Yrotation Zrotation
@@ -146,15 +146,15 @@ ROOT Hip
 									}
 								}
 							}
-							JOINT L4ProxPhalanx
+							JOINT L5ProxPhalanx
 							{
 								OFFSET -1.60546 2.01050 -0.41468
 								CHANNELS 3 Zrotation Xrotation Yrotation
-								JOINT L4MidPhalanx
+								JOINT L5MidPhalanx
 								{
 									OFFSET -0.81697 0.78962 -0.37932
 									CHANNELS 3 Xrotation Yrotation Zrotation
-									JOINT L4DistPhalanx
+									JOINT L5DistPhalanx
 									{
 										OFFSET -0.51445 0.51600 -0.16745
 										CHANNELS 3 Xrotation Yrotation Zrotation
@@ -165,15 +165,15 @@ ROOT Hip
 									}
 								}
 							}
-							JOINT L5ProxPhalanx
+							JOINT L1ProxPhalanx
 							{
 								OFFSET 1.32642 0.01652 -0.91353
 								CHANNELS 3 Xrotation Yrotation Zrotation
-								JOINT L5MidPhalanx
+								JOINT L1MidPhalanx
 								{
 									OFFSET 0.56037 -0.04452 -1.10949
 									CHANNELS 3 Xrotation Yrotation Zrotation
-									JOINT L5DistPhalanx
+									JOINT L1DistPhalanx
 									{
 										OFFSET 0.56894 -0.31394 -0.93677
 										CHANNELS 3 Xrotation Yrotation Zrotation
@@ -204,15 +204,15 @@ ROOT Hip
 						{
 							OFFSET -8.38509 -0.00000 0.00000
 							CHANNELS 2 Zrotation Yrotation
-							JOINT R1ProxPhalanx
+							JOINT R2ProxPhalanx
 							{
 								OFFSET -1.68547 2.46874 -0.24056
 								CHANNELS 3 Zrotation Xrotation Yrotation
-								JOINT R1MidPhalanx
+								JOINT R2MidPhalanx
 								{
 									OFFSET -0.10277 1.47086 -0.45732
 									CHANNELS 3 Xrotation Yrotation Zrotation
-									JOINT R1DistPhalanx
+									JOINT R2DistPhalanx
 									{
 										OFFSET -0.08662 0.93830 -0.07738
 										CHANNELS 3 Xrotation Yrotation Zrotation
@@ -223,15 +223,15 @@ ROOT Hip
 									}
 								}
 							}
-							JOINT R2ProxPhalanx
+							JOINT R3ProxPhalanx
 							{
 								OFFSET -0.85407 2.65552 -0.00744
 								CHANNELS 3 Zrotation Xrotation Yrotation
-								JOINT R2MidPhalanx
+								JOINT R3MidPhalanx
 								{
 									OFFSET -0.20884 1.70284 -0.28882
 									CHANNELS 3 Xrotation Yrotation Zrotation
-									JOINT R2DistPhalanx
+									JOINT R3DistPhalanx
 									{
 										OFFSET -0.13336 1.10092 -0.23410
 										CHANNELS 3 Xrotation Yrotation Zrotation
@@ -242,15 +242,15 @@ ROOT Hip
 									}
 								}
 							}
-							JOINT R3ProxPhalanx
+							JOINT R4ProxPhalanx
 							{
 								OFFSET 0.20418 2.54564 0.23484
 								CHANNELS 3 Zrotation Xrotation Yrotation
-								JOINT R3MidPhalanx
+								JOINT R4MidPhalanx
 								{
 									OFFSET -0.04892 1.76626 -0.37155
 									CHANNELS 3 Xrotation Yrotation Zrotation
-									JOINT R3DistPhalanx
+									JOINT R4DistPhalanx
 									{
 										OFFSET -0.02641 0.95308 -0.21249
 										CHANNELS 3 Xrotation Yrotation Zrotation
@@ -261,15 +261,15 @@ ROOT Hip
 									}
 								}
 							}
-							JOINT R4ProxPhalanx
+							JOINT R5ProxPhalanx
 							{
 								OFFSET 0.88895 2.32064 0.25776
 								CHANNELS 3 Zrotation Xrotation Yrotation
-								JOINT R4MidPhalanx
+								JOINT R5MidPhalanx
 								{
 									OFFSET 0.43367 1.29723 -0.28031
 									CHANNELS 3 Xrotation Yrotation Zrotation
-									JOINT R4DistPhalanx
+									JOINT R5DistPhalanx
 									{
 										OFFSET 0.24248 0.73091 -0.16650
 										CHANNELS 3 Xrotation Yrotation Zrotation
@@ -280,15 +280,15 @@ ROOT Hip
 									}
 								}
 							}
-							JOINT R5ProxPhalanx
+							JOINT R1ProxPhalanx
 							{
 								OFFSET -1.27353 -0.34685 -0.51300
 								CHANNELS 3 Xrotation Yrotation Zrotation
-								JOINT R5MidPhalanx
+								JOINT R1MidPhalanx
 								{
 									OFFSET -0.97380 1.27673 -0.24634
 									CHANNELS 3 Xrotation Yrotation Zrotation
-									JOINT R5DistPhalanx
+									JOINT R1DistPhalanx
 									{
 										OFFSET -0.70681 0.85176 -0.10722
 										CHANNELS 3 Xrotation Yrotation Zrotation
