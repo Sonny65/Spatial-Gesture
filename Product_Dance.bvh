@@ -3,54 +3,6 @@ ROOT Hip
 {
 	OFFSET 0.00 0.00 0.00
 	CHANNELS 6 Xposition Yposition Zposition Xrotation Yrotation Zrotation
-	JOINT Left_Thigh
-	{
-		OFFSET 3.93700 0.00000 0.00000
-		CHANNELS 3 Xrotation Zrotation Yrotation
-		JOINT Left_Shin
-		{
-			OFFSET 0.00000 -18.44568 0.00000
-			CHANNELS 1 Xrotation
-			JOINT Left_Foot
-			{
-				OFFSET -0.00000 -15.49322 0.19672
-				CHANNELS 2 Xrotation Zrotation
-				JOINT Left_Toe
-				{
-					OFFSET 0.00000 -0.82039 5.66291
-					CHANNELS 1 Xrotation
-					End Site
-					{
-						OFFSET 0.00000 0.00000 1.71250
-					}
-				}
-			}
-		}
-	}
-	JOINT Right_Thigh
-	{
-		OFFSET -3.93700 0.00000 0.00000
-		CHANNELS 3 Xrotation Zrotation Yrotation
-		JOINT Right_Shin
-		{
-			OFFSET -0.00000 -18.44568 -0.00000
-			CHANNELS 1 Xrotation
-			JOINT Right_Foot
-			{
-				OFFSET -0.00000 -15.49322 0.19672
-				CHANNELS 2 Xrotation Zrotation
-				JOINT Right_Toe
-				{
-					OFFSET 0.00000 -0.96513 5.62412
-					CHANNELS 1 Xrotation
-					End Site
-					{
-						OFFSET 0.00000 0.00000 1.44139
-					}
-				}
-			}
-		}
-	}
 	JOINT Abdomen
 	{
 		OFFSET 0.00000 0.03937 0.00000
@@ -89,7 +41,26 @@ ROOT Hip
 						{
 							OFFSET 8.38509 0.00000 0.00000
 							CHANNELS 2 Zrotation Yrotation
-							JOINT L2ProxPhalanx
+							JOINT L1ProxPhalanx
+							{
+								OFFSET 1.32642 0.01652 -0.91353
+								CHANNELS 3 Xrotation Yrotation Zrotation
+								JOINT L1MidPhalanx
+								{
+									OFFSET 0.56037 -0.04452 -1.10949
+									CHANNELS 3 Xrotation Yrotation Zrotation
+									JOINT L1DistPhalanx
+									{
+										OFFSET 0.56894 -0.31394 -0.93677
+										CHANNELS 3 Xrotation Yrotation Zrotation
+										End Site
+										{
+											OFFSET 0.15316 0.30870 -1.10710
+										}
+									}
+								}
+							}
+						    JOINT L2ProxPhalanx
 							{
 								OFFSET 1.09197 2.42158 -0.70498
 								CHANNELS 3 Zrotation Xrotation Yrotation
@@ -165,25 +136,6 @@ ROOT Hip
 									}
 								}
 							}
-							JOINT L1ProxPhalanx
-							{
-								OFFSET 1.32642 0.01652 -0.91353
-								CHANNELS 3 Xrotation Yrotation Zrotation
-								JOINT L1MidPhalanx
-								{
-									OFFSET 0.56037 -0.04452 -1.10949
-									CHANNELS 3 Xrotation Yrotation Zrotation
-									JOINT L1DistPhalanx
-									{
-										OFFSET 0.56894 -0.31394 -0.93677
-										CHANNELS 3 Xrotation Yrotation Zrotation
-										End Site
-										{
-											OFFSET 0.15316 0.30870 -1.10710
-										}
-									}
-								}
-							}
 						}
 					}
 				}
@@ -204,7 +156,26 @@ ROOT Hip
 						{
 							OFFSET -8.38509 -0.00000 0.00000
 							CHANNELS 2 Zrotation Yrotation
-							JOINT R2ProxPhalanx
+							JOINT R1ProxPhalanx
+							{
+								OFFSET -1.27353 -0.34685 -0.51300
+								CHANNELS 3 Xrotation Yrotation Zrotation
+								JOINT R1MidPhalanx
+								{
+									OFFSET -0.97380 1.27673 -0.24634
+									CHANNELS 3 Xrotation Yrotation Zrotation
+									JOINT R1DistPhalanx
+									{
+										OFFSET -0.70681 0.85176 -0.10722
+										CHANNELS 3 Xrotation Yrotation Zrotation
+										End Site
+										{
+											OFFSET -0.60213 0.74049 -0.11612
+										}
+									}
+								}
+							}
+						    JOINT R2ProxPhalanx
 							{
 								OFFSET -1.68547 2.46874 -0.24056
 								CHANNELS 3 Zrotation Xrotation Yrotation
@@ -280,26 +251,55 @@ ROOT Hip
 									}
 								}
 							}
-							JOINT R1ProxPhalanx
-							{
-								OFFSET -1.27353 -0.34685 -0.51300
-								CHANNELS 3 Xrotation Yrotation Zrotation
-								JOINT R1MidPhalanx
-								{
-									OFFSET -0.97380 1.27673 -0.24634
-									CHANNELS 3 Xrotation Yrotation Zrotation
-									JOINT R1DistPhalanx
-									{
-										OFFSET -0.70681 0.85176 -0.10722
-										CHANNELS 3 Xrotation Yrotation Zrotation
-										End Site
-										{
-											OFFSET -0.60213 0.74049 -0.11612
-										}
-									}
-								}
-							}
 						}
+					}
+				}
+			}
+		}
+	}
+	JOINT Left_Thigh
+	{
+		OFFSET 3.93700 0.00000 0.00000
+		CHANNELS 3 Xrotation Zrotation Yrotation
+		JOINT Left_Shin
+		{
+			OFFSET 0.00000 -18.44568 0.00000
+			CHANNELS 1 Xrotation
+			JOINT Left_Foot
+			{
+				OFFSET -0.00000 -15.49322 0.19672
+				CHANNELS 2 Xrotation Zrotation
+				JOINT Left_Toe
+				{
+					OFFSET 0.00000 -0.82039 5.66291
+					CHANNELS 1 Xrotation
+					End Site
+					{
+						OFFSET 0.00000 0.00000 1.71250
+					}
+				}
+			}
+		}
+	}
+	JOINT Right_Thigh
+	{
+		OFFSET -3.93700 0.00000 0.00000
+		CHANNELS 3 Xrotation Zrotation Yrotation
+		JOINT Right_Shin
+		{
+			OFFSET -0.00000 -18.44568 -0.00000
+			CHANNELS 1 Xrotation
+			JOINT Right_Foot
+			{
+				OFFSET -0.00000 -15.49322 0.19672
+				CHANNELS 2 Xrotation Zrotation
+				JOINT Right_Toe
+				{
+					OFFSET 0.00000 -0.96513 5.62412
+					CHANNELS 1 Xrotation
+					End Site
+					{
+						OFFSET 0.00000 0.00000 1.44139
 					}
 				}
 			}
