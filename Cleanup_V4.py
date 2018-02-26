@@ -638,7 +638,11 @@ def new_joint_name(joint):
         'RiThumbMP': 'R1MidPhalanx',
         'RiThumbIP': 'R1DistPhalanx'
     }.get(joint, joint)
+while (bvh[current_token] != ("IDENT", "Time")):
+        bvh_out.write(bvh[current_token][1])
+        current_token = current_token + 1
 
+    current_token = current_token + 3
 if __name__ == "__main__":
     bvh_file_body = open(bvh_file_body, "r")
     bvh_body = bvh_file_body.read()
